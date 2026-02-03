@@ -14,6 +14,9 @@
 
 function parseNumber(equation) {
   //code here
+  let str = equation.toString();
+  if (str.length == 1 || str.slice(1) == 0) return str;
+  return `${str[0] + "0".repeat(str.length - 1)}+` + parseNumber(str.slice(1));
 }
 
 console.log(parseNumber(3333)); // 3000+300+30+3  // 3000 + 300 + 30 + 3
